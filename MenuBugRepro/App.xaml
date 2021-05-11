@@ -1,0 +1,17 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MenuBugRepro.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Palettes -->
+                <ResourceInclude Source="/Interface/Styles/Base.xaml" />
+                <ResourceInclude Source="/Interface/Styles/Brushes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+    <Application.Styles>
+        <StyleInclude Source="/Interface/Styles/Styles.xaml"/>
+        <StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentLight.xaml"/>
+    </Application.Styles>
+</Application>

@@ -1,0 +1,88 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <Style Selector="Separator.SeparatorBrush">
+        <Setter Property="Background" Value="{DynamicResource BorderSeparatorBrush}" />
+    </Style>
+    
+    <Style Selector="Border.BorderHoverStyle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+    </Style>
+    
+    <Style Selector="Border.BorderHoverStyle:pointerover">
+        <Setter Property="Background" Value="{DynamicResource RoundBorderHoverBrush}" />
+    </Style>
+    
+    <Style Selector="ContextMenu.RoundMenuStyle">
+        <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource ContextForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Border Background="{DynamicResource ContextBackgroundBrush}"
+                            BorderBrush="{DynamicResource ContextBorderBrush}"
+                            BorderThickness="1"
+                            Padding="{TemplateBinding Padding}"
+                            MaxWidth="{TemplateBinding MaxWidth}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            CornerRadius="{DynamicResource DefaultCornerRadius}">
+                        <ScrollViewer Classes="menuscroller">
+                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                            Items="{TemplateBinding Items}"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                                            Margin="{DynamicResource MenuFlyoutScrollerMargin}"
+                                            KeyboardNavigation.TabNavigation="Continue"
+                                            Grid.IsSharedSizeScope="True" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ContextMenu > MenuItem.RoundMenuStyle">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ContextForegroundBrush}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="MinWidth" Value="150" />
+        <Setter Property="Margin" Value="5,0,3,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border Name="PART_LayoutRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{DynamicResource DefaultCornerRadius}"
+                            Classes="BorderHoverStyle" 
+                            VerticalAlignment="Center" Height="40" Margin="0,0">
+                        <Panel>
+                            <ContentPresenter Name="PART_HeaderPresenter"
+                                              Content="{TemplateBinding Header}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Stretch"
+                                              Margin="{TemplateBinding Padding}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="system:String">
+                                        <AccessText Text="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="MenuItem.RoundMenuStyle > Separator, ContextMenu.RoundMenuStyle > Separator, MenuItem.RoundMenuStyle:separator">
+        <Setter Property="Background" Value="{DynamicResource BorderSeparatorBrush}" />
+        <Setter Property="Margin" Value="10,1,10,1" />
+    </Style>
+    
+</Styles>
